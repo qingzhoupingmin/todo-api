@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# IDE
+.vscode/
+*.swp
+
+# 数据文件（可选，根据需求）
+# data/todos.json
