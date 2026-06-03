@@ -27,6 +27,7 @@ flowchart TB
 | /about | 关于我们 |
 | /leaders | 领导班子 |
 | /units | 直属单位 |
+| /news | 政务动态 |
 
 ## 4. Data Structure
 
