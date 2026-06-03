@@ -10,9 +10,9 @@ flowchart TB
     C[Tailwind CSS]
     D[组件系统]
   end
-  A --> B
-  A --> C
-  A --> D
+  A --&gt; B
+  A --&gt; C
+  A --&gt; D
 ```
 
 ## 2. Technology Description
@@ -24,10 +24,14 @@ flowchart TB
 | Route | Purpose |
 |-------|---------|
 | / | 首页 |
-| /about | 关于我们 |
-| /leaders | 领导班子 |
-| /units | 直属单位 |
-| /news | 政务动态 |
+| /zwgk | 政务公开 |
+| /zwgk/ldjs | 领导介绍 |
+| /zwgk/jgzn | 机构职能和设置 |
+| /zwgk/zcwj | 政策文件 |
+| /zwgk/zcjd | 政策解读 |
+| /zwgk/ghxx | 规划信息 |
+| /zwfw | 政务服务 |
+| /zmhd | 政民互动 |
 
 ## 4. Data Structure
 
@@ -37,6 +41,7 @@ interface Leader {
   name: string;
   position: string;
   avatar?: string;
+  introduction?: string;
 }
 ```
 
@@ -53,6 +58,28 @@ interface Unit {
 interface Duty {
   id: number;
   content: string;
+}
+```
+
+### 4.4 新闻/通知数据结构
+```typescript
+interface News {
+  id: number;
+  title: string;
+  date: string;
+  content?: string;
+  link?: string;
+}
+```
+
+### 4.5 政策文件数据结构
+```typescript
+interface Policy {
+  id: number;
+  title: string;
+  date: string;
+  content?: string;
+  link?: string;
 }
 ```
 
