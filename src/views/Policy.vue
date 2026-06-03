@@ -74,7 +74,7 @@
                 <div class="file-meta">
                   <span>发文机构：{{ item.org }}</span>
                   <span>发文日期：{{ item.date }}</span>
-                  <span>浏览：125次</span>
+                  <span>浏览：{{ item.views }}次</span>
                 </div>
               </div>
               <div class="file-actions">
