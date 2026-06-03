@@ -1,0 +1,64 @@
+$color-primary: #1E5AA8;
+$color-primary-dark: #15407A;
+$color-primary-light: #4A90D9;
+$color-primary-lighter: #E8F0F8;
+
+$color-text-primary: #333333;
+$color-text-secondary: #555555;
+$color-text-muted: #999999;
+
+$color-bg-page: #F5F7FA;
+$color-bg-card: #FFFFFF;
+$color-bg-hover: rgba(30, 90, 168, 0.05);
+
+$color-border: #E8E8E8;
+$color-border-light: #DDDDDD;
+
+$color-success: #388E3C;
+$color-error: #D32F2F;
+$color-warning: #F57C00;
+$color-info: #0288D1;
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+$space-xxxl: 64px;
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+$font-size-xxxl: 28px;
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1400px;
+
+$header-height: 64px;
+$header-height-mobile: 56px;
+
+$footer-height: 200px;
+
+:root {
+  --el-color-primary: #{$color-primary};
+  --el-color-primary-light-3: #{$color-primary-light};
+  --el-color-primary-dark-2: #{$color-primary-dark};
+  --el-border-color-base: #{$color-border};
+  --el-fill-color-light: #{$color-bg-page};
+  --el-font-family: 'Source Han Sans CN', 'Microsoft YaHei', sans-serif;
+}
