@@ -801,34 +801,192 @@
 
 ### 13.1 技术栈
 
-| 层级 | 技术选型 |
-|------|----------|
-| 框架 | Vue 3 / React 18 |
-| UI组件库 | Element Plus / Ant Design Vue |
-| 样式方案 | SCSS + CSS Variables |
-| 图标库 | Lucide / Element Plus Icons |
-| 动效 | CSS Transitions |
-| 构建工具 | Vite / Webpack |
+| 类别 | 技术选型 | 说明 |
+|------|----------|------|
+| 框架 | Vue 3 | 前端框架，采用Composition API |
+| 构建工具 | Vite 5.x | 快速开发服务器和构建工具 |
+| UI组件库 | Element Plus | 基于Vue 3的组件库 |
+| 样式方案 | SCSS + CSS Variables | 样式预处理+CSS变量 |
+| 路由管理 | Vue Router 4 | 单页应用路由 |
+| 状态管理 | Pinia | Vue 3推荐的状态管理 |
+| HTTP客户端 | Axios | API请求 |
+| 图标库 | @element-plus/icons-vue | Element Plus官方图标 |
+| 代码规范 | ESLint + Prettier | 代码格式统一 |
+| 版本控制 | Git | 代码管理 |
 
-### 13.2 性能指标
+### 13.2 项目结构
 
-| 指标 | 目标值 |
-|------|--------|
-| 首屏加载时间 | < 2s |
-| 页面完全加载 | < 4s |
-| Lighthouse评分 | > 85 |
-| FCP | < 1.8s |
-| LCP | < 2.5s |
-| CLS | < 0.1 |
+```
+src/
+├── assets/              # 静态资源
+│   ├── images/          # 图片资源
+│   ├── fonts/           # 字体文件
+│   └── styles/          # 全局样式
+│       ├── variables.scss    # SCSS变量
+│       ├── mixins.scss       # SCSS混入
+│       ├── reset.scss        # 样式重置
+│       └── common.scss       # 公共样式
+├── components/          # 公共组件
+│   ├── common/          # 通用组件
+│   ├── layout/          # 布局组件
+│   └── business/        # 业务组件
+├── composables/         # 组合式函数
+├── directives/          # 自定义指令
+├── layouts/             # 页面布局
+├── router/              # 路由配置
+├── stores/              # Pinia状态管理
+├── types/               # TypeScript类型定义
+├── utils/               # 工具函数
+├── views/               # 页面视图
+│   ├── home/            # 首页模块
+│   ├── about/           # 机构职能
+│   ├── news/            # 新闻动态
+│   ├── service/         # 政务服务
+│   └── interactive/     # 政民互动
+├── App.vue
+└── main.ts
+```
 
-### 13.3 SEO规范
+### 13.3 SCSS 变量规范
 
-- HTML语义化标签
-- title包含机构名称+页面名称
-- meta描述标签
-- 规范URL结构
-- sitemap.xml生成
-- 结构化数据标记
+```scss
+// 色彩变量
+$color-primary: #1E5AA8;
+$color-primary-dark: #15407A;
+$color-primary-light: #4A90D9;
+
+$color-text-primary: #333333;
+$color-text-secondary: #666666;
+$color-text-muted: #999999;
+
+$color-bg-page: #F5F7FA;
+$color-bg-card: #FFFFFF;
+$color-border: #E8E8E8;
+
+$color-success: #388E3C;
+$color-error: #D32F2F;
+$color-warning: #F57C00;
+
+// 间距变量
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-xxl: 48px;
+
+// 字号变量
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-xxl: 24px;
+$font-size-xxxl: 28px;
+
+// 圆角变量
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// 阴影变量
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+
+// 响应式断点
+$breakpoint-xs: 576px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1400px;
+```
+
+### 13.4 CSS Variables 与 Element Plus 主题
+
+```scss
+// element-plus 主题变量覆盖
+:root {
+  --el-color-primary: #1E5AA8;
+  --el-color-primary-light-3: #4A90D9;
+  --el-color-primary-dark-2: #15407A;
+  --el-border-color-base: #E8E8E8;
+  --el-fill-color-light: #F5F7FA;
+  --el-font-family: 'Source Han Sans CN', 'Microsoft YaHei', sans-serif;
+}
+```
+
+### 13.5 Element Plus 组件使用规范
+
+| 组件 | 用途 | 规范 |
+|------|------|------|
+| el-menu | 顶部导航、侧边导航 | 使用 menu-trigger="hover" |
+| el-button | 按钮 | 主要按钮使用 type="primary" |
+| el-table | 数据列表 | 配合 el-pagination 使用 |
+| el-form | 表单 | 设置 label-width，required-mark |
+| el-dialog | 弹窗 | 设置 append-to-body |
+| el-dropdown | 下拉菜单 | 配合 el-dropdown-menu 使用 |
+| el-tabs | 标签页 | 用于列表页筛选 |
+| el-pagination | 分页 | 设置 background |
+| el-input | 输入框 | 配合 el-prefix-icon |
+| el-select | 选择器 | 支持远程搜索时用 filterable + remote |
+| el-date-picker | 日期选择 | 设置 type="datetimerange" |
+| el-upload | 文件上传 | 设置 drag, limit |
+
+### 13.6 Vite 配置要点
+
+```javascript
+// vite.config.ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+      imports: ['vue', 'vue-router', 'pinia']
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()]
+    })
+  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/assets/styles/variables.scss" as *;`
+      }
+    }
+  },
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
+})
+```
+
+### 13.7 性能指标
+
+| 指标 | 目标值 | 说明 |
+|------|--------|------|
+| 首屏加载时间 | < 2s | FCP < 1.8s |
+| 页面完全加载 | < 4s | LCP < 2.5s |
+| Lighthouse评分 | > 85 | 性能/可访问性/最佳实践 |
+| CLS | < 0.1 | 布局偏移 |
+| 包大小 | < 500KB | 首屏资源（gzip） |
+
+### 13.8 SEO规范
+
+- 使用 Vue Router 的 history 模式
+- 动态生成 meta 标签（vue-meta）
+- 生成 sitemap.xml
+- 添加 robots.txt
+- 结构化数据（JSON-LD）
+- 语义化 HTML 标签
 
 ---
 
