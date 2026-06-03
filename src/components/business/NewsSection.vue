@@ -22,7 +22,7 @@
 
         <div class="news-list">
           <div 
-            v-for="item in newsItems.slice(1)" 
+            v-for="item in newsItems.slice(1, 5)" 
             :key="item.id" 
             class="news-card small"
           >

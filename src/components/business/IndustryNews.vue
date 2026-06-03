@@ -8,7 +8,7 @@
 
       <div class="news-grid">
         <div 
-          v-for="item in industryNews" 
+          v-for="item in industryNews.slice(0, 10)" 
           :key="item.id" 
           class="news-item"
         >

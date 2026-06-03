@@ -8,7 +8,7 @@
 
       <div class="notice-list">
         <div 
-          v-for="item in noticeItems" 
+          v-for="item in noticeItems.slice(0, 8)" 
           :key="item.id" 
           class="notice-item"
         >

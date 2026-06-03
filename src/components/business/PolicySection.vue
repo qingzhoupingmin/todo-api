@@ -8,7 +8,7 @@
 
       <div class="policy-list">
         <div 
-          v-for="item in policyItems" 
+          v-for="item in policyItems.slice(0, 5)" 
           :key="item.id" 
           class="policy-item"
         >
