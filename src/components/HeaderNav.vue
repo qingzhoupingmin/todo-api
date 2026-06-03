@@ -43,6 +43,23 @@ const subNavItems = {
     { path: '/zwgk/zcwj', name: '政策文件' },
     { path: '/zwgk/zcjd', name: '政策解读' },
     { path: '/zwgk/ghxx', name: '规划信息' },
+    { path: '/zwgk/ksly', name: '招考录用' },
+    { path: '/zwgk/xxgk', name: '信息公开' },
+  ],
+  '/xwdt': [
+    { path: '/xwdt/zwdt', name: '政务动态' },
+    { path: '/xwdt/tzgg', name: '通知公告' },
+    { path: '/xwdt/bmgz', name: '部门工作' },
+  ],
+  '/zwfw': [
+    { path: '/zwfw/bszn', name: '办事指南' },
+    { path: '/zwfw/qrxx', name: '权责清单' },
+    { path: '/zwfw/sfjd', name: '收费监督' },
+  ],
+  '/zmhd': [
+    { path: '/zmhd/lyzx', name: '留言咨询' },
+    { path: '/zmhd/tsjy', name: '投诉建议' },
+    { path: '/zmhd/hdjl', name: '互动交流' },
   ],
 }
 
