@@ -137,7 +137,7 @@ export const newsItems = Array.from({ length: 30 }, (_, i) => ({
   title: newsTitles[i % newsTitles.length],
   date: randomDate(new Date(2026, 0, 1), new Date(2026, 5, 3)),
   type: i % 3 === 0 ? '动态' : i % 3 === 1 ? '要闻' : '快讯',
-  image: `https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=government%20news%20${i + 1}%20professional%20office&image_size=landscape_4_3`,
+  image: `https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%A4%A9%E6%B5%B7%E5%B8%82%E6%94%BF%E5%BA%8A%E4%BA%A4%E6%94%BF%E6%96%B0%E9%97%BB%E5%8A%A8%E6%80%81%E5%A4%96%E6%99%AF%E4%B8%AD%E5%9B%BD%E8%88%AA%E7%BA%BF&image_size=landscape_4_3`,
   summary: `天津市市政公路管理局认真贯彻落实市委市政府决策部署，持续推进各项工作落实落地，取得了良好成效。`
 }))
 
@@ -291,25 +291,25 @@ export const bannerItems = [
     id: 1,
     title: '天津市市政公路管理局',
     subtitle: '服务人民，建设美丽天津',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20city%20road%20infrastructure%20with%20blue%20sky%20professional%20government%20building&image_size=landscape_16_9'
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%A4%A9%E6%B5%B7%E5%B8%82%E5%B8%82%E6%94%BF%E5%85%AC%E8%B7%AF%E7%AE%A1%E7%90%86%E5%B1%80%E5%A4%96%E6%99%AF%E4%B8%AD%E5%9B%BD%E8%88%AA%E7%BA%BF%E5%A4%96%E6%8E%A5%E5%A4%96%E6%99%AF&image_size=landscape_16_9'
   },
   {
     id: 2,
     title: '重点工程建设',
     subtitle: '推动市政基础设施升级改造',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=construction%20site%20heavy%20machinery%20building%20road%20infrastructure&image_size=landscape_16_9'
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%A4%A9%E6%B5%B7%E5%B8%82%E9%93%81%E8%B7%AF%E5%85%AC%E8%B7%AF%E6%96%BD%E5%B7%A5%E7%8E%B0%E5%9C%BA%E4%B8%AD%E5%9B%BD%E5%B7%A5%E4%BA%BA%E5%9C%B0%E5%8C%BA&image_size=landscape_16_9'
   },
   {
     id: 3,
     title: '政策解读',
     subtitle: '最新政策文件图文解读',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=policy%20document%20government%20office%20professional&image_size=landscape_16_9'
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%A4%A9%E6%B5%B7%E5%B8%82%E6%94%BF%E5%BA%8A%E5%8D%8F%E8%AE%AE%E5%8E%85%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%BA%8A%E4%BA%A4%E6%94%BF&image_size=landscape_16_9'
   },
   {
     id: 4,
     title: '便民服务',
     subtitle: '业务办理指引与服务公告',
-    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=civil%20service%20center%20help%20desk%20modern%20office&image_size=landscape_16_9'
+    image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=%E5%A4%A9%E6%B5%B7%E5%B8%82%E6%94%BF%E5%8A%9E%E6%9C%8D%E5%8A%A1%E5%A4%A7%E5%8E%B3%E5%A4%96%E6%99%AF%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%8A%9E%E5%A4%A7%E5%8E%B3&image_size=landscape_16_9'
   }
 ]
 
