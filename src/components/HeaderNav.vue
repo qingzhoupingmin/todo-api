@@ -1,15 +1,39 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const mobileMenuOpen = ref(false)
+const currentDate = ref('')
+
+const updateDate = () => {
+  const now = new Date()
+  const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+  const year = now.getFullYear()
+  const month = String(now.getMonth() + 1).padStart(2, '0')
+  const day = String(now.getDate()).padStart(2, '0')
+  const weekday = weekdays[now.getDay()]
+  currentDate.value = `${year}年${month}月${day}日 ${weekday}`
+}
+
+let timer: number | null = null
+
+onMounted(() => {
+  updateDate()
+  timer = window.setInterval(updateDate, 60000)
+})
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer)
+})
 
 const navItems = [
   { path: '/', name: '首页' },
   { path: '/zwgk', name: '政务公开' },
+  { path: '/xwdt', name: '新闻动态' },
   { path: '/zwfw', name: '政务服务' },
-  { path: '/zmhd', name: '政民互动' }
+  { path: '/zmhd', name: '政民互动' },
+  { path: '/ztzl', name: '专题专栏' },
 ]
 
 const subNavItems = {
@@ -18,8 +42,8 @@ const subNavItems = {
     { path: '/zwgk/jgzn', name: '机构职能' },
     { path: '/zwgk/zcwj', name: '政策文件' },
     { path: '/zwgk/zcjd', name: '政策解读' },
-    { path: '/zwgk/ghxx', name: '规划信息' }
-  ]
+    { path: '/zwgk/ghxx', name: '规划信息' },
+  ],
 }
 
 const activeSubMenu = ref<string | null>(null)
@@ -43,13 +67,18 @@ const navigate = (path: string) => {
   <header class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
     <div class="bg-gradient-to-r from-red-700 to-red-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="h-8 flex items-center justify-between text-white text-sm">
-          <div class="flex items-center space-x-4">
-            <span>欢迎访问天津市市政公路管理局官方网站</span>
+        <div class="h-10 flex items-center justify-between text-white text-sm">
+          <div class="flex items-center space-x-6">
+            <span class="font-medium">{{ currentDate }}</span>
+            <a href="#" class="hover:text-red-200 transition-colors">公务邮箱</a>
+            <a href="#" class="hover:text-red-200 transition-colors">加入收藏</a>
+            <a href="#" class="hover:text-red-200 transition-colors">设为首页</a>
           </div>
-          <div class="flex items-center space-x-4">
-            <a href="#" class="hover:text-red-200 transition-colors">登录</a>
+          <div class="flex items-center space-x-6">
+            <a href="#" class="hover:text-red-200 transition-colors">简体</a>
             <a href="#" class="hover:text-red-200 transition-colors">繁体</a>
+            <a href="#" class="hover:text-red-200 transition-colors">微博</a>
+            <a href="#" class="hover:text-red-200 transition-colors">公众号</a>
             <a href="#" class="hover:text-red-200 transition-colors">无障碍</a>
           </div>
         </div>
@@ -83,7 +112,7 @@ const navigate = (path: string) => {
               {{ item.name }}
               <span v-if="subNavItems[item.path]" class="ml-1">
                 <svg class="w-4 h-4 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7 7"></path>
                 </svg>
               </span>
             </button>
@@ -110,7 +139,7 @@ const navigate = (path: string) => {
             <div class="relative">
               <input
                 type="text"
-                placeholder="搜索..."
+                placeholder="请输入关键词"
                 class="w-64 pl-10 pr-4 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
               />
               <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,7 +177,7 @@ const navigate = (path: string) => {
             <span>{{ item.name }}</span>
             <span v-if="subNavItems[item.path]" class="ml-1">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7 7"></path>
               </svg>
             </span>
           </button>
